@@ -4,7 +4,7 @@ gonn-models-perspective
 GONN (good ole neural network models) for topiCS paper on perspective-taking (Nick Duran, Rick Dale, and Alexia Galati). Code written for Matlab.
 
 Normalized recurrence network for real-time processing (see Section 4.1; Figures 2 and 3 in manuscript)
-
+=======================
 Overview of process involved in running models:
 
 Relevant programs:
