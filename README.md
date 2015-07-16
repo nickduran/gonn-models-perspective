@@ -54,16 +54,16 @@ Overview of process involved in running models:
 > **Relevant Programs**
 > - makeStimuli.m, runActivationTrack.m, runMLP.m, slidefun.m, test_perceptron_from.m, train_perceptron_fresh.m, and train_perceptron_from.m
 
-1) Call runMLP: Start here. This is the main program to generates stimuli (makeStimuli.m), to train with ego then other-centric and social learning (train_perceptron_fresh.m, train_perceptron_from.m) (Figure 5a), and to run the single trial tests (runActivationTrack.m, test_perceptron_from.m) (Figure 5b-c).
+1) Call runMLP: Start here. This is the main program to generate stimuli (makeStimuli.m), to train with ego then other-centric and social learning (train_perceptron_fresh.m, train_perceptron_from.m) (Figure 5a), and to run the single trial tests (runActivationTrack.m, test_perceptron_from.m) (Figure 5b-c).
 
 - 1a) In runMLP: Hidden layer size is set at 10 nodes, the learning rate at 0.1
 - 1b) In runMLP, first call train_perceptron_fresh.m: a model is first trained (2000 iterations) to favor egocentric perspective based on initially random weight space and using standard backpropagation. Stimuli input (from makeStimuli.m), consists of simple one-item input, unambiguous at orientation 0 AND two-item input, unambiguous at orientation 0, providing axis contrast (see code with extensive comments for more information). 
-- 1c) In runMLP, next call train_perceptron_from.m: an updated model is trained (10000 iterations) with alternative non-egocentric perspective, also taking as input the output from train_perceptron_fresh.m (above) and using and using standard backpropagation. Stimuli input (from makeStimuli.m) consists of two-item input, unambiguous at orientation 0, providing axis contrast AND the idea of transformation: left is different at degree-90; no social belief information
+- 1c) In runMLP, next call train_perceptron_from.m: an updated model is trained (10000 iterations) with alternative non-egocentric perspective, also taking as input the output from train_perceptron_fresh.m (above) and using standard backpropagation. Stimuli input (from makeStimuli.m) consists of two-item input, unambiguous at orientation 0, providing axis contrast AND the idea of transformation: left is different at degree-90; no social belief information
 - 1d) In runMLP, model above trained further (10000 iterations) with other-centric social belief information now added (see makeStimuli.m), such that all input types now introduced and trained together.
 
 > **Figure 5a: depicts error rate of 1b, 1c, and 1d above.**
 
-3) In runMLP: call runActivationTrack.m: "Single trial" test code, generating Figures 5b-c (activation of candidate objects egocentric or other-centric choice). Calls test_perception_from.m based on input from makeStimuli.m. Operates by passing activation one time through network, then useing output activations to update the input activations to network, and does this for 10 iterations to see how model converges with max activation for one of the output nodes.
+3) In runMLP: call runActivationTrack.m: "Single trial" test code, generates Figures 5b-c (activation of candidate objects egocentric or other-centric choice). Calls test_perception_from.m based on input from makeStimuli.m. Operates by passing activation one time through network, then using output activations to update the input activations to network, and does this for 10 iterations to see how model converges with max activation for one of the output nodes.
 
-- 3a) Figure 5b based on initial activation such that model initially "thinks:" left-instructions, no social belief informationg given, initial ego activation at 90% 
+- 3a) Figure 5b based on initial activation such that model initially "thinks:" left-instructions, no social belief information given, initial ego activation at 90% 
 - 3b) Figure 5c based on initial activation such that model initially "thinks:" left-instructions, social belief information now given (cannot see), initial ego activation at 90, network can flip!
