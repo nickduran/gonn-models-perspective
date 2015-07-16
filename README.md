@@ -2,7 +2,7 @@ gonn-models-perspective
 ===================
 
 
-GONN (good ole neural network models) for topiCS paper on perspective-taking (Nick Duran, Rick Dale, and Alexia Galati). Code written for Matlab.
+GONN (good ole neural network models) for topiCS paper on perspective-taking (Nick Duran, Rick Dale, and Alexia Galati). Code written for MATLAB.
 
 ----------
 
@@ -15,7 +15,7 @@ Overview of process involved in running models:
 > **Relevant programs:**
 > - NR.m, runNR.m
 
-1) In runNR.m: A hypothetical trial from Duran et al., (2014) simulated as an interaction over 20 epochs, whereby the output "left/right" choice integration layer (output_LR) is updated as an interaction between multiple input layers:
+1) In runNR.m: A hypothetical trial from Duran et al. (2014) simulated as an interaction over 20 epochs, whereby the output "left/right" choice integration layer (output_LR) is updated as an interaction between multiple input layers:
 
 - 1a) Egocentric orientation layer: Initated at: [1.5 1 1.5 1] 
 - 1b) Instruction layer
@@ -46,7 +46,7 @@ Each of these input layers is updated at each iteration and new activations norm
 
 After 20 epochs, object "choice" is selected based on highest activation stabilization.
 
-Multilayer Perceptron that Performs Spatial Transformation and Learning (see Section 4.2; Figures 4 and 5 in manuscript)
+Multilayer perceptron that performs spatial transformation and learning (see Section 4.2; Figures 4 and 5 in manuscript)
 -------------
 
 Overview of process involved in running models:
@@ -63,7 +63,7 @@ Overview of process involved in running models:
 
 > **Figure 5a: depicts error rate of 1b, 1c, and 1d above.**
 
-3) In runMLP: call runActivationTrack.m: "Single trial" test code, generating Figures 5b-c (activation of candidate objects egocentric or other-centric choice). Calls test_perception_from.m based on input from makeStimuli.m. Operates by passing activation one time through network, then use=ing output activations to update the input activations to network, and does this for 10 iterations to see how model converges with max activation for one of the output nodes.
+3) In runMLP: call runActivationTrack.m: "Single trial" test code, generating Figures 5b-c (activation of candidate objects egocentric or other-centric choice). Calls test_perception_from.m based on input from makeStimuli.m. Operates by passing activation one time through network, then useing output activations to update the input activations to network, and does this for 10 iterations to see how model converges with max activation for one of the output nodes.
 
 - 3a) Figure 5b based on initial activation such that model initially "thinks:" left-instructions, no social belief informationg given, initial ego activation at 90% 
 - 3b) Figure 5c based on initial activation such that model initially "thinks:" left-instructions, social belief information now given (cannot see), initial ego activation at 90, network can flip!
